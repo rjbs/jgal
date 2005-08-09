@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+
+use strict;
+
+use jGal;
+use jGal::Image;
+
+my $gal = jGal->new;
+
+for (@ARGV) {
+	$gal->add_image(jGal::Image->new($_));
+}
+
+print $gal->to_html;
+for ($gal->slides) {
+	print $_->to_html;
+}
